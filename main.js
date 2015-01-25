@@ -125,10 +125,10 @@ colorpalette = {
       		}
 			colorpalette.colorLink();
 		}
-		var ciao = el.getElementsByTagName('li');
+		var arrList = el.getElementsByTagName('li');
       	setTimeout(function() {
-      		for (var i=0; i<ciao.length;i++){
-      				ciao[i].style.height = '100px';
+      		for (var i=0; i<arrList.length;i++){
+      				arrList[i].style.height = '100px';
       			}
       	}, 10);
       			
