@@ -1,0 +1,159 @@
+// Mixin
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin transitionHeight (){
+	transition: height 0.5s;
+    -moz-transition: height 0.5s;
+    -webkit-transition: height 0.5s;
+    -o-transition: height 0.5s;
+}
+
+@mixin transitionPadding (){
+	transition: padding 0.5s;
+    -moz-transition: padding 0.5s;
+    -webkit-transition: padding 0.5s;
+    -o-transition: padding 0.5s;
+}
+
+
+// Japan 9
+$dark: #1A1F1E;
+$light-gray: #E3DFBA;
+$light-sky: #C8D6BF;
+$sky: #93CCC6;
+$dark-sky: #6CBDB5;
+
+$moster-font: 'Raleway', sans-serif;
+$play: 'Play', sans-serif;
+
+* {
+	-webkit-box-sizing: border-box; 
+	   -moz-box-sizing: border-box;    
+  		    box-sizing: border-box;         
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background: $light-gray;
+}
+
+.top-nav {
+	background-color: $dark;
+	padding: 20px;
+	text-align: center;
+	@include box-shadow(0, 3px, 10px, rgba(0, 0, 0, 0.2));
+
+		span {
+			font-family: $play;
+			color: white;
+			margin-right: 12px;
+		}
+}
+
+.cont-wrap {
+	width: 100%;
+	text-align: center;
+	@include transitionPadding();
+	@include box-shadow(0, 3px, 10px, rgba(0, 0, 0, 0.2));
+
+		&.dark-sky {
+			background-color: $dark-sky;
+		}
+
+		&.sky {
+			background-color: $sky;
+		}
+}
+
+#cat-list {
+	list-style: none;
+	margin-left: -10%;
+
+		li {
+			position: relative;
+			display: inline-block;
+			width: 80px;
+			height: 80px;
+			margin-left: 10%;
+			padding-top: 80px;
+			background-color: $sky;
+			background-position: center;
+			background-repeat: no-repeat;
+			border: 1px solid black;
+			border-radius: 50%;
+			cursor: pointer;
+			font-family: $moster-font;
+			font-size: 13px;
+
+				&.Style {
+					background-image: url(images/style.svg);
+				}
+
+				&.Gender {
+					background-image: url(images/gender.svg);
+				}
+
+				&.Pur_Power {
+					background-image: url(images/power.svg);				}
+
+				&.Line {
+					background-image: url(images/pulse1.svg);
+				}
+
+				&:hover,
+				&.active {
+					background-color: $light-sky;
+				}
+		}
+}
+
+#col-palette {
+	list-style: none;
+	margin-left: -1%;
+
+		li {
+			position: relative;
+			display: inline-block;
+			width: 10%;
+			margin-left: 1%;
+			height: 0px;
+			top: 0px;
+			cursor: pointer;
+			border-radius: 5px;
+			@include transitionHeight();
+			@include box-shadow(0, 3px, 8px, rgba(0, 0, 0, 0.1));
+
+				&:hover {
+					opacity: 0.6;
+				}
+		}
+}
+
+#color-desc-wrap {
+	h2 {
+		font-family: $moster-font;
+		text-align: center;
+		color: white;
+
+			span {
+				font-family: $play;
+				font-size: 18px;
+			}
+	}
+}
